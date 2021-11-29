@@ -12,19 +12,21 @@ namespace primeiro {
             NumeroConta = numConta;
             Nome = nome;
         }
-        public Conta(string nome,  int numConta, double saldo): this(nome, numConta){          
-            Saldo = saldo;           
+        public Conta(string nome, int numConta, double depositoInicial) : this(nome, numConta) {
+            Deposito(depositoInicial);
         }
-        public override string ToString() {
-            return "Conta "+ NumeroConta +" , Titular: "+ Nome + 
-                   " , Saldo: $" + Saldo.ToString("F2",CultureInfo.InvariantCulture);
-        }
+        
         public void Deposito (double quantia){
             Saldo += quantia;
         }
 
         public void Saque(double quantia) {           
             Saldo -= quantia + 5.0;
-        }      
+        }
+
+        public override string ToString() {
+            return "Conta " + NumeroConta + " , Titular: " + Nome +
+                   " , Saldo: $" + Saldo.ToString("F2", CultureInfo.InvariantCulture);
+        }
     }
 }
